@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[1.0.0-rc4, )"
             },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
             "Microsoft.Extensions.AI": {
               "target": "Package",
               "version": "[10.4.1, )"

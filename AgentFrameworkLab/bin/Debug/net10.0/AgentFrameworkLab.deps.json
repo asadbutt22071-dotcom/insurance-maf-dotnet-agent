@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Agents.AI": "1.0.0-rc4",
           "Microsoft.Agents.AI.Abstractions": "1.0.0-rc4",
+          "Microsoft.AspNetCore.OpenApi": "10.0.5",
           "Microsoft.Extensions.AI": "10.4.1",
           "OllamaSharp": "5.4.24"
         },
@@ -52,6 +53,17 @@
           "lib/net10.0/Microsoft.Agents.AI.Abstractions.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.OpenApi/10.0.5": {
+        "dependencies": {
+          "Microsoft.OpenApi": "2.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
+            "assemblyVersion": "10.0.5.0",
+            "fileVersion": "10.0.526.15411"
           }
         }
       },
@@ -138,6 +150,14 @@
           }
         }
       },
+      "Microsoft.OpenApi/2.0.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
       "OllamaSharp/5.4.24": {
         "dependencies": {
           "Microsoft.Extensions.AI.Abstractions": "10.4.1"
@@ -185,6 +205,13 @@
       "sha512": "sha512-3/5gnZxpod0WUyeQtLmgXDoa7HFKLau4pp6+cHcd9A5wYuZmIXlIltonp9kw0akBbPF/0X6dYIFCq2r+yHduOw==",
       "path": "microsoft.agents.ai.abstractions/1.0.0-rc4",
       "hashPath": "microsoft.agents.ai.abstractions.1.0.0-rc4.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.OpenApi/10.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vTcxIfOPyfFbYk1g8YcXJfkMnlEWVkSnnjxcZLy60zgwiHMRf2SnZR+9E4HlpwKxgE3yfKMOti8J6WfKuKsw6w==",
+      "path": "microsoft.aspnetcore.openapi/10.0.5",
+      "hashPath": "microsoft.aspnetcore.openapi.10.0.5.nupkg.sha512"
     },
     "Microsoft.Extensions.AI/10.4.1": {
       "type": "package",
@@ -241,6 +268,13 @@
       "sha512": "sha512-+b8lT4cLLO/sBR2hjvE/qG6qrZG15h7/PBvnIrzTh4xDaAxdHUY6449rC+1pHzQUsBiCHZVbj+VMn+xS0sL7TA==",
       "path": "microsoft.ml.tokenizers/2.0.0",
       "hashPath": "microsoft.ml.tokenizers.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.OpenApi/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
+      "path": "microsoft.openapi/2.0.0",
+      "hashPath": "microsoft.openapi.2.0.0.nupkg.sha512"
     },
     "OllamaSharp/5.4.24": {
       "type": "package",

@@ -1,51 +1,27 @@
-﻿// Program.cs — Minimal Agent with Ollama 
+// Program.cs — Console Interactive Agent
 
 using Microsoft.Agents.AI;
-
 using Microsoft.Extensions.AI;
-
 using OllamaSharp;
 
-
-
-// 1. Create the Ollama chat client 
-
 IChatClient chatClient = new OllamaApiClient(
-
     new Uri("http://localhost:11434/"), "llama3.2");
 
-
-
-// 2. Create an AIAgent from the chat client 
-
 AIAgent agent = chatClient.AsAIAgent(
+    name: "LogisticsAgent",
+    instructions: "You are a logistics assistant.");
 
-    name: "InsuranceHelper",
+Console.WriteLine("Logistics Assistant (type 'exit' to quit)");
+Console.WriteLine("==========================================");
 
-    instructions: "You are an insurance underwriting assistant. " +
-
-        "Help users with property and general insurance queries. " +
-
-        "Keep answers concise and professional.");
-
-
-
-// 3. Non-streaming: get complete response 
-
-Console.WriteLine(await agent.RunAsync(
-
-    "What factors affect property insurance premiums?"));
-
-
-
-// 4. Streaming: token by token 
-
-await foreach (var update in agent.RunStreamingAsync(
-
-    "Explain the difference between replacement cost and ACV."))
-
+while (true)
 {
+    Console.Write("\nYou: ");
+    var input = Console.ReadLine();
 
-    Console.Write(update);
+    if (string.IsNullOrWhiteSpace(input) || input.Trim().Equals("exit", StringComparison.OrdinalIgnoreCase))
+        break;
 
+    var response = await agent.RunAsync(input);
+    Console.WriteLine($"Agent: {response}");
 }
