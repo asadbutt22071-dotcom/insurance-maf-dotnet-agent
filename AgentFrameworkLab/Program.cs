@@ -1,51 +1,57 @@
-﻿// Program.cs — Minimal Agent with Ollama 
-
+﻿// Program.cs — ASP.NET Core Minimal API + Agent 
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Agents.AI;
 
 using Microsoft.Extensions.AI;
 
 using OllamaSharp;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
 
 
 
-// 1. Create the Ollama chat client 
-
-IChatClient chatClient = new OllamaApiClient(
-
-    new Uri("http://localhost:11434/"), "llama3.2");
+var builder = WebApplication.CreateBuilder(args);
 
 
 
-// 2. Create an AIAgent from the chat client 
+// Register IChatClient in DI 
 
-AIAgent agent = chatClient.AsAIAgent(
+builder.Services.AddSingleton<IChatClient>(
 
-    name: "InsuranceHelper",
+    new OllamaApiClient(
 
-    instructions: "You are an insurance underwriting assistant. " +
-
-        "Help users with property and general insurance queries. " +
-
-        "Keep answers concise and professional.");
+        new Uri("http://localhost:11434/"), "llama3.2"));
 
 
 
-// 3. Non-streaming: get complete response 
-
-Console.WriteLine(await agent.RunAsync(
-
-    "What factors affect property insurance premiums?"));
+var app = builder.Build();
 
 
 
-// 4. Streaming: token by token 
+app.MapPost("/api/chat", async (
 
-await foreach (var update in agent.RunStreamingAsync(
-
-    "Explain the difference between replacement cost and ACV."))
+    IChatClient chatClient, ChatRequest request) =>
 
 {
 
-    Console.Write(update);
+    AIAgent agent = chatClient.AsAIAgent(
 
-}
+        name: "InsuranceHelper",
+
+        instructions: "You are an insurance assistant.");
+
+
+
+    var response = await agent.RunAsync(request.Message);
+
+    return Results.Ok(new { reply = response.ToString() });
+
+});
+
+
+
+app.Run();
+
+
+
+record ChatRequest(string Message);

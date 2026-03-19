@@ -27,3 +27,4 @@
 /Users/asadullah/Learning Projects/AgentFrameworkLab/AgentFrameworkLab/obj/Debug/net10.0/AgentFrameworkLab.pdb
 /Users/asadullah/Learning Projects/AgentFrameworkLab/AgentFrameworkLab/obj/Debug/net10.0/AgentFrameworkLab.genruntimeconfig.cache
 /Users/asadullah/Learning Projects/AgentFrameworkLab/AgentFrameworkLab/obj/Debug/net10.0/ref/AgentFrameworkLab.dll
+/Users/asadullah/Learning Projects/AgentFrameworkLab/AgentFrameworkLab/obj/Debug/net10.0/AgentFrameworkLab.sourcelink.json
